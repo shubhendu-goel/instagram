@@ -1,6 +1,6 @@
 <div style="width: 50%;" class="ml-auto mr-auto">
-	<h3><%= link_to 'Home', posts_path %></h3><br>
-<h2>Create a new post using the below form</h2>
+	<h3><%= link_to 'Home', posts_path ,class: 'btn btn-success' %></h3><br>
+<h2>Edit post using the below form</h2>
 		<% if @post.errors.any? %>
     <div id="error_explanation">
       <h2>
