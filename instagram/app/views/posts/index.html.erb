@@ -2,15 +2,20 @@
 
 	<h1>Welcome to Shubhendu's Instagram</h1>
 	<div class="justify-content-center">
+
+		<h3><%= link_to 'Create new Post', new_post_path %></h3>
 		<% @posts.each do |post| %>
 	    <div class="row">
 	    	<div class="col-6">
-	    	
+	    		<% if post.image_file.attached? %>
+	    			<%= image_tag post.image_file.variant(resize: "600x600"), class: 'img img-fluid' %> 
+	    		<%end%>
 	    	</div>
 	    	<div class="col-6">
 	    		<%= post.caption %>
 	    	</div>
 	    </div>
+	    <br>
 	    <%end%>
 	</div>
 </div>

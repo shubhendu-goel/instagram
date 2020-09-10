@@ -14,13 +14,12 @@ class PostsController < ApplicationController
 	end
 	def create
 		@post = Post.new(post_params)
- 		@post.save
- 		redirect_to 'index'
-		#if @task.save
-		#	redirect_to @task
-  		#else
-  		#	render 'new'
-  		#end
+		puts @post.caption
+		if @post.save
+			redirect_to '/'
+ 		else
+  			render 'new'
+  		end
 	end
 	def update
 	end
@@ -32,6 +31,8 @@ class PostsController < ApplicationController
 	end
 	private
 	    def post_params
-	    	params.require(:post).permit(:caption)
+	    	params.require(:post).permit(:caption,:image_file)
 	    end
 end
+
+
