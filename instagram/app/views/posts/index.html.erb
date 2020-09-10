@@ -1,0 +1,16 @@
+<div class="container ml-auto">
+
+	<h1>Welcome to Shubhendu's Instagram</h1>
+	<div class="justify-content-center">
+		<% @posts.each do |post| %>
+	    <div class="row">
+	    	<div class="col-6">
+	    	
+	    	</div>
+	    	<div class="col-6">
+	    		<%= post.caption %>
+	    	</div>
+	    </div>
+	    <%end%>
+	</div>
+</div>
