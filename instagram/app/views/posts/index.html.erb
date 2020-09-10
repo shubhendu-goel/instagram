@@ -3,7 +3,7 @@
 	<h1>Welcome to Shubhendu's Instagram</h1>
 	<div class="justify-content-center">
 
-		<h3><%= link_to 'Create new Post', new_post_path %></h3>
+		<h3><%= link_to 'Create new Post', new_post_path , class: 'btn btn-success'%></h3>
 		<% @posts.each do |post| %>
 	    <div class="row">
 	    	<div class="col-6">
@@ -12,7 +12,9 @@
 	    		<%end%>
 	    	</div>
 	    	<div class="col-6">
-	    		<%= post.caption %>
+	    		<h3><%= post.caption %></h3>
+	    		<h4><%= link_to 'Edit', edit_post_url(post) , class: 'btn btn-warning' %></h4>
+	    		<h4><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger' %></h4>	
 	    	</div>
 	    </div>
 	    <br>

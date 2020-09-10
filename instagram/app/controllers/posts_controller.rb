@@ -14,7 +14,6 @@ class PostsController < ApplicationController
 	end
 	def create
 		@post = Post.new(post_params)
-		puts @post.caption
 		if @post.save
 			redirect_to '/'
  		else
@@ -22,6 +21,12 @@ class PostsController < ApplicationController
   		end
 	end
 	def update
+		@post = Post.find(params[:id])
+		if @post.update(post_params)
+    		redirect_to '/'
+		else
+			render 'edit'
+		end
 	end
 	def destroy
 		@post = Post.find(params[:id])
