@@ -13,7 +13,6 @@
 	    	</div>
 	    	<div class="col-6">
 	    		<h3><%= post.caption %></h3>
-	    		<h4><%= link_to 'View', '/posts/'+String(post.id) , class: 'btn btn-success' %></h4>
 	    		<h4><%= link_to 'Edit', edit_post_url(post) , class: 'btn btn-warning' %></h4>
 	    		<h4><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-danger' %></h4>	
 	    	</div>
