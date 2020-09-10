@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 	end
 	def create
 		@post = Post.new(post_params)
+		@post.caption=@post.caption.strip
 		if @post.save
 			redirect_to '/'
  		else
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
 	end
 	def update
 		@post = Post.find(params[:id])
+		@post.caption=@post.caption.strip
 		if @post.update(post_params)
     		redirect_to '/'
 		else
