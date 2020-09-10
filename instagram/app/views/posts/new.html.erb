@@ -1,0 +1,37 @@
+<div style="width: 50%;" class="ml-auto mr-auto">
+	<h3><%= link_to 'Home', posts_path ,class: 'btn btn-success' %></h3><br>
+<h2>Create a new post using the below form</h2>
+		<% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %> prohibited
+        this post from being saved:
+      </h2>
+      <h3>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  </h3>
+    </div>
+  <% end %>
+
+	<%= form_with scope: :post , url: posts_path, local: true do |f| %>
+		  <p>
+		    <%= f.label :caption %><br>
+		    <%= f.text_field :caption ,class: 'form-control'%>
+		  </p>
+		 	<% if @post.image_file.attached? %>
+		  	<%= image_tag @post.image_file.variant(resize: "600x600"), class: 'img img-fluid' %>
+		  <%end%>
+		  <p>
+		  	<%= f.label :image_file %><br>
+		 	<%= f.file_field  :image_file ,class: 'form-control' %>
+		  </p>
+		  <p>
+		    <%= f.submit %>
+		  </p>
+	<% end %>
+
+</div>
